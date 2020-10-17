@@ -1,0 +1,52 @@
+﻿@model Qaroco.DL.MessageSystem
+
+@{
+    ViewBag.Title = "MessageDelete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h3>Silmek istediğinize emin misiniz?</h3>
+<div>
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col">İsim Soyisim</th>
+                    <th scope="col">Mail</th>
+                    <th scope="col">Konu</th>
+                    <th scope="col">Mesaj</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+
+                        @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Content)
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+        </div>
+    }
+</div>
+
+

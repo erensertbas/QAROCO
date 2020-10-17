@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Qaroco.DL.ViewModels" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Qaroco.DL.ViewModels" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Qaroco.DL" />
+  <xs:complexType name="BlogVM">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Qaroco.DL" minOccurs="0" name="_Blog" nillable="true" type="q1:Blog" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Qaroco.DL" minOccurs="0" name="_BlogComment" nillable="true" type="q2:ArrayOfBlogComment" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Qaroco.DL" minOccurs="0" name="_Picture" nillable="true" type="q3:ArrayOfPicture" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BlogVM" nillable="true" type="tns:BlogVM" />
+  <xs:complexType name="ArrayOfBlogVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BlogVM" nillable="true" type="tns:BlogVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBlogVM" nillable="true" type="tns:ArrayOfBlogVM" />
+  <xs:complexType name="CourierVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="BirthYear" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CourierId" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RoleId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TcNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserActiveStatus" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CourierVM" nillable="true" type="tns:CourierVM" />
+  <xs:complexType name="CustomerVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="BirthYear" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TcNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserActiveStatus" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomerVM" nillable="true" type="tns:CustomerVM" />
+</xs:schema>

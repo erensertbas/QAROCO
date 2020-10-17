@@ -1,0 +1,57 @@
+﻿@model Qaroco.DL.User
+@{
+    ViewBag.Title = "CustomerProfile";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+
+    <div class="container-contact100">
+        <div class="wrap-contact100">
+            <form class="contact100-form validate-form" method="post" action="/MusteriProfilDetay">
+                <span class="contact100-form-title">
+                    Profilimi Güncelle
+                </span>
+                @if (TempData["Message"] != null)
+                {
+                    <div class="alert-success">@TempData["Message"] &nbsp <i class="fa fa-refresh" aria-hidden="true"></i></div>
+                }
+                <br />
+                <div class="wrap-input100 validate-input" data-validate="Please enter your firstname">
+                    <input class="input100" type="text" name="FirstName" placeholder="Adınız" value="@Model.FirstName">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Please enter your lastname">
+                    <input class="input100" type="text" name="LastName" placeholder="Soyadınız" value="@Model.LastName">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Please enter your email: e@a.x">
+                    <input class="input100" type="text" name="Email" placeholder="E-mail" value="@Model.Email">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Please enter your password">
+                    <input class="input100" type="password" id="password" name="Password" placeholder="Şifreniz" value="@Model.Password">
+                    <i class="fa fa-eye-slash" onclick="togglePassword()"></i>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Please enter your phone">
+                    <input class="input100" type="tel" name="Phone" placeholder="Telefon" value="@Model.Phone">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="container-contact100-form-btn">
+                    <button class="contact100-form-btn">
+                        <span>
+                            Güncelle
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="dropDownSelect1"></div>
+    <script>
+    function togglePassword() {
+        var element = document.getElementById('password');
+        element.type = (element.type == 'password' ? 'text' : 'password');
+
+
+    }
+    </script>

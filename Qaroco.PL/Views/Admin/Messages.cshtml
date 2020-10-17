@@ -1,0 +1,273 @@
+﻿@model List<Qaroco.DL.MessageSystem>
+
+@{
+    ViewBag.Title = "Mesajlar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+    <title></title>
+</head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Set a style for all buttons */
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+
+        button:hover {
+            opacity: 1;
+        }
+
+    /* Float cancel and delete buttons and add an equal width */
+    .cancelbtn, .deletebtn {
+        float: left;
+        width: 50%;
+    }
+
+    /* Add a color to the cancel button */
+    .cancelbtn {
+        background-color: #ccc;
+        color: black;
+    }
+
+    /* Add a color to the delete button */
+    .deletebtn {
+        background-color: #f44336;
+    }
+
+    /* Add padding and center-align text to the container */
+    .container {
+        padding: 16px;
+        text-align: center;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: #474e5d;
+        padding-top: 50px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    /* Style the horizontal ruler */
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+
+    /* The Modal Close Button (x) */
+    .close {
+        position: absolute;
+        right: 35px;
+        top: 15px;
+        font-size: 40px;
+        font-weight: bold;
+        color: #f1f1f1;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: #f44336;
+            cursor: pointer;
+        }
+
+    /* Clear floats */
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    /* Change styles for cancel button and delete button on extra small screens */
+    @@media screen and (max-width: 300px) {
+        .cancelbtn, .deletebtn {
+            width: 100%;
+        }
+    }
+
+    /*Sayfalama*/
+
+
+    form.example input[type=text] {
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid grey;
+        float: left;
+        width: 80%;
+        background: #f1f1f1;
+    }
+
+    form.example button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #2d71a1;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none;
+        cursor: pointer;
+    }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+    form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+</style>
+<body>
+    <table class="table " style="margin-top:5rem; background-color:white; color:black;">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Mail Adresi</th>
+                <th scope="col">İsim</th>
+                <th scope="col">Soyisim</th>
+                <th scope="col">Başlık</th>
+                <th scope="col">Mesaj</th>
+                <th scope="col">Durum</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td> @Html.DisplayFor(modelItem => item.Email)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                    <td>  @Html.DisplayFor(modelItem => item.Title)</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Content)
+
+                        @if (item.Content.Length > 10)
+                        {
+                            @(item.Content.Substring(0, 8) + "...")
+                            @Html.ActionLink("Mesajın Devamı", "MessageDetail", new { id = item.MessageId })
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.Content)
+                        }
+
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-light">
+                            @Html.ActionLink("Oku", "MessageDetail", new { id = item.MessageId })
+                        </button>
+
+                        <button type="button" class="btn btn-danger" onclick="document.getElementById('id01').style.display='block'"></button>
+                        <div id="id01" class="modal">
+                            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Kapat">×</span>
+                            <form class="modal-content" action="/action_page.php">
+                                <div class="container">
+                                    <h1>Mesaj Sil</h1>
+                                    <p>Mesajı silmek istediğinden emin misin?</p>
+                                    <div class="clearfix">
+                                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Vazgeç</button>
+                                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">
+                                            @Html.ActionLink("Sil", "MesajSil", new { id = item.MessageId })
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+    <div class="container pagination-list">
+        @if (ViewBag.CurrentPage != 1)
+        {
+            <input type="button" class="btn-primary btn-paging" data-val="@(((int)ViewBag.CurrentPage)-1)" value="Geri" />
+        }
+
+        @for (int i = (int)ViewBag.StartPage; i < ((int)ViewBag.EndPage) + 1; i++)
+        {
+            if (ViewBag.CurrentPage == i)
+            {
+                <input type="button" class="btn-primary btn-paging" value="@i" data-val="@i" />
+            }
+            else
+            {
+                <input type="button" class="btn-primary btn-paging" value="@i" data-val="@i" />
+            }
+        }
+
+        @if (ViewBag.CurrentPage != ViewBag.PageCount)
+        {
+            <input type="button" class="btn-primary btn-paging" value="İleri" data-val="@(((int)ViewBag.CurrentPage)+1)" />
+        }
+
+    </div>
+
+
+
+
+</body>
+
+@section scripts
+             {
+        <script>
+            $(function () {
+                $('.btn-paging').click(function () {
+                    window.location.href = "Mesajlar?page=" + $(this).attr('data-val');
+                }
+                );
+            });
+        </script>
+
+    }
+
+
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+

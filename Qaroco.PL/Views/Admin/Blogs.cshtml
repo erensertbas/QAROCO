@@ -1,0 +1,46 @@
+﻿@model List<Qaroco.DL.ViewModels.BlogVM>
+
+@{
+    ViewBag.Title = "Bloglar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<table class="table " style="margin-top:5rem; background-color:white; color:black;">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Blog Başlık</th>
+            <th scope="col">İçerik</th>
+            <th scope="col">Durum</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td> @Html.DisplayFor(modelItem => item._Blog.BlogTitle)</td>
+                <td>
+                                @if (item._Blog.BlogContent.Length > 100)
+                                {
+                                    @(item._Blog.BlogContent.Substring(0, 97) + "...")
+                                }
+                                else
+                                {
+                                    @Html.DisplayFor(modelItem => item._Blog.BlogContent)
+                                }
+                            </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Detay", "BlogDetail", new {  id=item._Blog.BlogId  }) |
+                    @Html.ActionLink("Sil", "BlogDelete", new {id=item._Blog.BlogId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+

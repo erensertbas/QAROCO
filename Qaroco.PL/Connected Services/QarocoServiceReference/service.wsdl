@@ -1,0 +1,534 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="QarocoService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Qaroco.DL" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Qaroco.DL.ViewModels" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IQarocoService_UserLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserLogin" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_UserLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_UserEdit_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserEdit" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_UserEdit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_UserListId_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserListId" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_UserListId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserListIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_AddressAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddressAdd" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_AddressAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddressAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_AddressDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddressDelete" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_AddressDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddressDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_AddressList_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddressList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_AddressList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddressListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_BlogCommentAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:BlogCommentAdd" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_BlogCommentAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BlogCommentAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_BlogCommentDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:BlogCommentDelete" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_BlogCommentDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BlogCommentDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_BlogCommentList_InputMessage">
+    <wsdl:part name="parameters" element="tns:BlogCommentList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_BlogCommentList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BlogCommentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_BlogAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:BlogAdd" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_BlogAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BlogAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_BlogDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:BlogDelete" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_BlogDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BlogDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_BlogList_InputMessage">
+    <wsdl:part name="parameters" element="tns:BlogList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_BlogList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BlogListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_BlogVMList_InputMessage">
+    <wsdl:part name="parameters" element="tns:BlogVMList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_BlogVMList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BlogVMListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_BlogDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:BlogDetail" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_BlogDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BlogDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CargoTransactionAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargoTransactionAdd" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CargoTransactionAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargoTransactionAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CargoTransactionDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargoTransactionDelete" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CargoTransactionDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargoTransactionDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CargoTransactionList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargoTransactionList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CargoTransactionList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargoTransactionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CityList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CityList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CityList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CityListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CourierAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:CourierAdd" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CourierAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CourierAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CourierDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:CourierDelete" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CourierDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CourierDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CourierUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:CourierUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CourierUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CourierUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CourierList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CourierList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CourierList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CourierListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CourierStatisticAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:CourierStatisticAdd" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CourierStatisticAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CourierStatisticAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CourierStatisticDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:CourierStatisticDelete" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CourierStatisticDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CourierStatisticDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CourierStatisticList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CourierStatisticList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CourierStatisticList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CourierStatisticListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CustomerAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerAdd" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CustomerAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CustomerDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerDelete" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CustomerDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CustomerList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_CustomerList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_DistrictList_InputMessage">
+    <wsdl:part name="parameters" element="tns:DistrictList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_DistrictList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DistrictListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_MessageSystemAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:MessageSystemAdd" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_MessageSystemAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MessageSystemAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_MessageSystemDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:MessageSystemDelete" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_MessageSystemDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MessageSystemDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_MessageSystemList_InputMessage">
+    <wsdl:part name="parameters" element="tns:MessageSystemList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_MessageSystemList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MessageSystemListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_OrderAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrderAdd" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_OrderAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrderAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_OrderDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrderDelete" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_OrderDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrderDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_OrderList_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrderList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_OrderList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrderListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_PictureAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:PictureAdd" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_PictureAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PictureAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_PictureDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:PictureDelete" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_PictureDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PictureDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_PictureList_InputMessage">
+    <wsdl:part name="parameters" element="tns:PictureList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_PictureList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PictureListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_ProductInfoAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProductInfoAdd" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_ProductInfoAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProductInfoAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_ProductInfoDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProductInfoDelete" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_ProductInfoDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProductInfoDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_ProductInfoList_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProductInfoList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_ProductInfoList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProductInfoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_RegisterFolderAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterFolderAdd" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_RegisterFolderAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterFolderAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_RegisterFolderDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterFolderDelete" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_RegisterFolderDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterFolderDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_RegisterFolderList_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterFolderList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_RegisterFolderList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterFolderListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_RoleList_InputMessage">
+    <wsdl:part name="parameters" element="tns:RoleList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_RoleList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RoleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_ShippingTypeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShippingTypeList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_ShippingTypeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShippingTypeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_UserBankList_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserBankList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_UserBankList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserBankListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_UserCardInfoAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserCardInfoAdd" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_UserCardInfoAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserCardInfoAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_UserCardInfoDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserCardInfoDelete" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_UserCardInfoDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserCardInfoDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_UserCardInfoList_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserCardInfoList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_UserCardInfoList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserCardInfoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_LogAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogAdd" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_LogAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_LogList_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogList" />
+  </wsdl:message>
+  <wsdl:message name="IQarocoService_LogList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IQarocoService">
+    <wsdl:operation name="UserLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/UserLogin" message="tns:IQarocoService_UserLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/UserLoginResponse" message="tns:IQarocoService_UserLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserEdit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/UserEdit" message="tns:IQarocoService_UserEdit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/UserEditResponse" message="tns:IQarocoService_UserEdit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserListId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/UserListId" message="tns:IQarocoService_UserListId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/UserListIdResponse" message="tns:IQarocoService_UserListId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddressAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/AddressAdd" message="tns:IQarocoService_AddressAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/AddressAddResponse" message="tns:IQarocoService_AddressAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddressDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/AddressDelete" message="tns:IQarocoService_AddressDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/AddressDeleteResponse" message="tns:IQarocoService_AddressDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddressList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/AddressList" message="tns:IQarocoService_AddressList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/AddressListResponse" message="tns:IQarocoService_AddressList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BlogCommentAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/BlogCommentAdd" message="tns:IQarocoService_BlogCommentAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/BlogCommentAddResponse" message="tns:IQarocoService_BlogCommentAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BlogCommentDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/BlogCommentDelete" message="tns:IQarocoService_BlogCommentDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/BlogCommentDeleteResponse" message="tns:IQarocoService_BlogCommentDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BlogCommentList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/BlogCommentList" message="tns:IQarocoService_BlogCommentList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/BlogCommentListResponse" message="tns:IQarocoService_BlogCommentList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BlogAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/BlogAdd" message="tns:IQarocoService_BlogAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/BlogAddResponse" message="tns:IQarocoService_BlogAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BlogDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/BlogDelete" message="tns:IQarocoService_BlogDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/BlogDeleteResponse" message="tns:IQarocoService_BlogDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BlogList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/BlogList" message="tns:IQarocoService_BlogList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/BlogListResponse" message="tns:IQarocoService_BlogList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BlogVMList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/BlogVMList" message="tns:IQarocoService_BlogVMList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/BlogVMListResponse" message="tns:IQarocoService_BlogVMList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BlogDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/BlogDetail" message="tns:IQarocoService_BlogDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/BlogDetailResponse" message="tns:IQarocoService_BlogDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargoTransactionAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/CargoTransactionAdd" message="tns:IQarocoService_CargoTransactionAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/CargoTransactionAddResponse" message="tns:IQarocoService_CargoTransactionAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargoTransactionDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/CargoTransactionDelete" message="tns:IQarocoService_CargoTransactionDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/CargoTransactionDeleteResponse" message="tns:IQarocoService_CargoTransactionDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargoTransactionList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/CargoTransactionList" message="tns:IQarocoService_CargoTransactionList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/CargoTransactionListResponse" message="tns:IQarocoService_CargoTransactionList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CityList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/CityList" message="tns:IQarocoService_CityList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/CityListResponse" message="tns:IQarocoService_CityList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CourierAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/CourierAdd" message="tns:IQarocoService_CourierAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/CourierAddResponse" message="tns:IQarocoService_CourierAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CourierDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/CourierDelete" message="tns:IQarocoService_CourierDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/CourierDeleteResponse" message="tns:IQarocoService_CourierDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CourierUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/CourierUpdate" message="tns:IQarocoService_CourierUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/CourierUpdateResponse" message="tns:IQarocoService_CourierUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CourierList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/CourierList" message="tns:IQarocoService_CourierList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/CourierListResponse" message="tns:IQarocoService_CourierList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CourierStatisticAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/CourierStatisticAdd" message="tns:IQarocoService_CourierStatisticAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/CourierStatisticAddResponse" message="tns:IQarocoService_CourierStatisticAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CourierStatisticDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/CourierStatisticDelete" message="tns:IQarocoService_CourierStatisticDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/CourierStatisticDeleteResponse" message="tns:IQarocoService_CourierStatisticDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CourierStatisticList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/CourierStatisticList" message="tns:IQarocoService_CourierStatisticList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/CourierStatisticListResponse" message="tns:IQarocoService_CourierStatisticList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/CustomerAdd" message="tns:IQarocoService_CustomerAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/CustomerAddResponse" message="tns:IQarocoService_CustomerAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/CustomerDelete" message="tns:IQarocoService_CustomerDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/CustomerDeleteResponse" message="tns:IQarocoService_CustomerDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/CustomerList" message="tns:IQarocoService_CustomerList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/CustomerListResponse" message="tns:IQarocoService_CustomerList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DistrictList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/DistrictList" message="tns:IQarocoService_DistrictList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/DistrictListResponse" message="tns:IQarocoService_DistrictList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MessageSystemAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/MessageSystemAdd" message="tns:IQarocoService_MessageSystemAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/MessageSystemAddResponse" message="tns:IQarocoService_MessageSystemAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MessageSystemDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/MessageSystemDelete" message="tns:IQarocoService_MessageSystemDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/MessageSystemDeleteResponse" message="tns:IQarocoService_MessageSystemDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MessageSystemList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/MessageSystemList" message="tns:IQarocoService_MessageSystemList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/MessageSystemListResponse" message="tns:IQarocoService_MessageSystemList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/OrderAdd" message="tns:IQarocoService_OrderAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/OrderAddResponse" message="tns:IQarocoService_OrderAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/OrderDelete" message="tns:IQarocoService_OrderDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/OrderDeleteResponse" message="tns:IQarocoService_OrderDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/OrderList" message="tns:IQarocoService_OrderList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/OrderListResponse" message="tns:IQarocoService_OrderList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PictureAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/PictureAdd" message="tns:IQarocoService_PictureAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/PictureAddResponse" message="tns:IQarocoService_PictureAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PictureDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/PictureDelete" message="tns:IQarocoService_PictureDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/PictureDeleteResponse" message="tns:IQarocoService_PictureDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PictureList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/PictureList" message="tns:IQarocoService_PictureList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/PictureListResponse" message="tns:IQarocoService_PictureList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductInfoAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/ProductInfoAdd" message="tns:IQarocoService_ProductInfoAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/ProductInfoAddResponse" message="tns:IQarocoService_ProductInfoAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductInfoDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/ProductInfoDelete" message="tns:IQarocoService_ProductInfoDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/ProductInfoDeleteResponse" message="tns:IQarocoService_ProductInfoDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductInfoList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/ProductInfoList" message="tns:IQarocoService_ProductInfoList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/ProductInfoListResponse" message="tns:IQarocoService_ProductInfoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterFolderAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/RegisterFolderAdd" message="tns:IQarocoService_RegisterFolderAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/RegisterFolderAddResponse" message="tns:IQarocoService_RegisterFolderAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterFolderDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/RegisterFolderDelete" message="tns:IQarocoService_RegisterFolderDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/RegisterFolderDeleteResponse" message="tns:IQarocoService_RegisterFolderDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterFolderList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/RegisterFolderList" message="tns:IQarocoService_RegisterFolderList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/RegisterFolderListResponse" message="tns:IQarocoService_RegisterFolderList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RoleList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/RoleList" message="tns:IQarocoService_RoleList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/RoleListResponse" message="tns:IQarocoService_RoleList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShippingTypeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/ShippingTypeList" message="tns:IQarocoService_ShippingTypeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/ShippingTypeListResponse" message="tns:IQarocoService_ShippingTypeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserBankList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/UserBankList" message="tns:IQarocoService_UserBankList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/UserBankListResponse" message="tns:IQarocoService_UserBankList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserCardInfoAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/UserCardInfoAdd" message="tns:IQarocoService_UserCardInfoAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/UserCardInfoAddResponse" message="tns:IQarocoService_UserCardInfoAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserCardInfoDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/UserCardInfoDelete" message="tns:IQarocoService_UserCardInfoDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/UserCardInfoDeleteResponse" message="tns:IQarocoService_UserCardInfoDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserCardInfoList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/UserCardInfoList" message="tns:IQarocoService_UserCardInfoList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/UserCardInfoListResponse" message="tns:IQarocoService_UserCardInfoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/LogAdd" message="tns:IQarocoService_LogAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/LogAddResponse" message="tns:IQarocoService_LogAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQarocoService/LogList" message="tns:IQarocoService_LogList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQarocoService/LogListResponse" message="tns:IQarocoService_LogList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="QarocoService" />
+</wsdl:definitions>

@@ -1,0 +1,26 @@
+﻿@model Qaroco.DL.Blog
+
+@{
+    ViewBag.Title = "BlogDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container" style="margin-top:6rem; background-color:white; padding:15px;">
+    <div>
+        <h4>Blog Detay</h4>
+        <hr />
+        <div class="card mb-3">
+            <img src="~/Content/NewAdminTemplate/images/bg-title-02.jpg" style="max-height:300px; max-width:800px;" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"> @Html.DisplayFor(model => model.BlogTitle)</h5>
+                <p class="card-text">    @Html.DisplayFor(model => model.BlogContent)</p>
+                <p class="card-text"><small class="text-muted"> 18 Ocak 2020</small></p>
+            </div>
+        </div>
+    </div>
+    <p>
+            @Html.ActionLink("Düzenle", "Edit", new { /* id = Model.PrimaryKey */ }) |
+         @Html.ActionLink("Listeye Dön", "Blogs")
+    </p>
+</div>
+

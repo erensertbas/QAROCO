@@ -1,0 +1,202 @@
+﻿@model Qaroco.DL.ViewModels.BlogVM
+
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+    .mySlides {
+        display: none
+    }
+
+    .w3-left, .w3-right, .w3-badge {
+        cursor: pointer
+    }
+
+    .w3-badge {
+        height: 13px;
+        width: 13px;
+        padding: 0
+    }
+</style>
+
+
+
+    <section class="site-section py-lg">
+        <div class="container">
+
+            <div class="row blog-entries element-animate">
+
+                <div class="col-md-12 col-lg-8 main-content">
+
+                    <div class="post-content-body">
+                        <h3>@Html.DisplayFor(model => model._Blog.BlogTitle)</h3>
+                        <div class="row mb-5 mt-5">
+
+                            <img class="mySlides" src="@Model._Picture.PictureUrl" style="height:300px !important;">
+                        </div>
+                        <p>@Html.DisplayFor(model => model._Blog.BlogContent)</p>
+                    </div>
+
+
+                    <div class="pt-5">
+                        <p>Kategoriler:  <a href="#"> @Model._Blog.CategoryName.ToString() </a> Etiketler: <a href="#"> @Model._Blog.TagName.ToString() </a></p>
+                    </div>
+                    <!-- Start Comments -->
+                    
+
+                    <div class="pt-5">
+                        <h3 class="mb-5">Yorum Sayısı</h3>
+
+                        @foreach (var item in Model._BlogComment)
+                        {
+                            <ul class="comment-list">
+                                <li class="comment">
+                                    <div class="vcard">
+                                        <img src="" alt="Image placeholder">
+                                    </div>
+                                    <div class="comment-body">
+                                        <h3> @item.UserId</h3>
+                                        <p> @item.Comment </p>
+                                        <p><a href="#" class="reply rounded">Cevapla</a></p>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        }
+                        <!-- END comment-list -->
+                        @using (Html.BeginForm())
+                        {
+                            <div class="comment-form-wrap pt-5">
+                                <h3 class="mb-5">Yorum Yap</h3>
+                                <form action="/Home/BlogDetail" method="post" class="p-5 bg-light">
+                                    <input type="hidden" name="BlogId" value="@Model._Blog.BlogId" />
+                                    <div class="form-group">
+                                        <label for="message">Yorum</label>
+                                        <textarea name="Comment" id="message" cols="30" rows="10" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Yorum Yap" class="btn btn-dark">
+                                    </div>
+                                </form>
+                            </div>
+                        }
+
+                    </div>
+                    <!-- END Comments -->
+                </div>
+
+                <!-- END main-content -->
+
+                <div class="col-md-12 col-lg-4 sidebar">
+                    <div class="sidebar-box search-form-wrap">
+                        <form action="#" class="search-form">
+                            <div class="form-group">
+                                <span class="icon fa fa-search"></span>
+                                <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
+                            </div>
+                        </form>
+                    </div>
+                    <!-- END sidebar-box -->
+                    <div class="sidebar-box">
+                        <h3 class="heading">Popüler Gönderiler</h3>
+                        <div class="post-entry-sidebar">
+
+                            <ul>
+                                <li>
+                                    <a href="">
+                                        <img src="~/Content/Blog/images/img_1.jpg" alt="Image placeholder" class="mr-4">
+                                        <div class="text">
+                                            <h4> Blog Başlık</h4>
+                                            <div class="post-meta">
+                                                <span class="mr-2">Mart 15, 2018 </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                    <!-- END sidebar-box -->
+                    <div class="sidebar-box">
+                        <h3 class="heading">Kategoriler</h3>
+                        <p> @Model._Blog.CategoryName.ToString()</p>
+
+                    </div>
+                    <!-- END sidebar-box -->
+
+                    <div class="sidebar-box">
+                        <h3 class="heading">Etiketler</h3>
+                        <ul class="tags">
+                            <p>
+                                @Model._Blog.TagName.ToString()
+                            </p>
+                        </ul>
+                    </div>
+                </div>
+                <!-- END sidebar -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-white", "");
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " w3-white";
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

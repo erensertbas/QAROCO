@@ -1,0 +1,339 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Hau Nguyen">
+    <meta content="Qaroco, Qaroco Kurye Hizmetleri, Kurye Hizmetleri, Qaroco Taşımacılık, Qaroco Kargo, Qaroco Kargo Taşımacılık " name="keywords">
+    <meta content="QAROCO, kullanıcılarının yaptığı internet alışverişlerinin teslimatını veya A noktasından B noktasına göndermek istediği kargoların gönderimini en hızlı şekilde 7/24 olarak yapmaktayız." name="description">
+
+    <!-- Title Page-->
+    <title>Müşteri</title>
+    <link rel="stylesheet" href="~/Content/icons/css/line-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="~/Content/Images/box.png" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/Help/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Help/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Help/css/main.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Help/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+
+
+    <!-- Fontfaces CSS-->
+    <link href="~/Content/NewAdminTemplate/css/font-face.css" rel="stylesheet" media="all">
+    <link href="~/Content/NewAdminTemplate/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/NewAdminTemplate/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/NewAdminTemplate/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="~/Content/NewAdminTemplate/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="~/Content/NewAdminTemplate/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/NewAdminTemplate/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/NewAdminTemplate/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="~/Content/NewAdminTemplate/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/NewAdminTemplate/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="~/Content/NewAdminTemplate/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/NewAdminTemplate/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="~/Content/NewAdminTemplate/css/theme.css" rel="stylesheet" media="all">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="~/İsletmePanel">
+                            <img src="~/Content/Template/img/title.png" style="height:30px; float:left;" />
+                            <h3 style="float:left;">QAROCO</h3>
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+
+                        <li>
+                            <a href="~/Customer/SendCargo">
+                                <i class="las la-map-marked"></i>Kargo Gönder
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/GecmisKargolarim">
+                                <i class="las la-clipboard-list"></i>Geçmiş Kargo İşlemlerim
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/İsletmeYardim">
+                                <i class="las la-question-circle"></i>Yardım
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/MüsteriHata">
+                                <i class="las la-exclamation-triangle"></i> Giriş İşlemleri
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+        <!-- MENU SIDEBAR-->
+        @if (ViewBag.Hata != null)
+        {
+            <script>
+
+            alert(@ViewBag.Hata);
+            </script>
+        }
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <img src="~/Content/Template/img/title.png" style="height:30px; float:left;" />
+                <a href="~/İsletmePanel"><h3 style="float:left; font-family:roboto-bold !important;">QAROCO</h3></a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+
+                        <li>
+                            <a href="~/Customer/SendCargo">
+                                <i class="las la-truck-loading"></i>Kargo Gönder
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/GecmisKargolarim">
+                                <i class="las la-clipboard-list"></i>Geçmiş Kargolar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/İsletmeYardim">
+                                <i class="las la-question-circle"></i>Yardım
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/MüsteriHata">
+                                <i class="las la-exclamation-triangle"></i>Giriş İşlemleri
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+        <!-- PAGE CONTAINER-->
+        <div class="page-container" style="background-color:#f2f2f2 !important;">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <form class="form-header" action="" method="POST">
+                               
+                            </form>
+                            <div class="header-button">
+                                <div class="noti-wrap">
+                                    <div class="noti__item js-item-menu">
+                                        <i class="zmdi zmdi-comment-more"></i>
+                                        <span class="quantity"> 0</span>
+                                        <div class="mess-dropdown js-dropdown">
+                                            <div class="mess__title">
+                                                <p> Mesajın Yok</p>
+                                            </div>
+
+
+                                            <div class="mess__footer">
+                                                <a href="#">View all messages</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="noti__item js-item-menu">
+                                        <i class="zmdi zmdi-email"></i>
+                                        <span class="quantity">0</span>
+                                        <div class="email-dropdown js-dropdown">
+                                            <div class="email__title">
+                                                <p>You have 0 New Emails</p>
+                                            </div>
+                                         
+                                            <div class="email__footer">
+                                                <a href="#">See all emails</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="noti__item js-item-menu">
+                                        <i class="zmdi zmdi-notifications"></i>
+                                        <span class="quantity">0</span>
+                                        <div class="notifi-dropdown js-dropdown">
+                                            <div class="notifi__title">
+                                                <p>You have 0 Notifications</p>
+                                            </div>
+                                            <div class="notifi__footer">
+                                                <a href="#">All notifications</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+                                        <div class="image">
+                                            <img src="~/Content/NewAdminTemplate/images/icon/user.png" alt="@ViewBag.User.FirstName" />
+                                        </div>
+                                        <div class="content">
+                                            <a class="js-acc-btn" href="#">@ViewBag.User.FirstName  @ViewBag.User.LastName</a>
+                                        </div>
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                    <a href="#">
+                                                        <img src="~/Content/NewAdminTemplate/images/icon/user.png" alt="@ViewBag.User.FirstName" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="name">
+
+                                                        <a href="#"> @ViewBag.User.FirstName</a>
+                                                    </h5>
+                                                    <span class="email">@ViewBag.User.Email</span>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+                                                <div class="account-dropdown__item">
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-account"></i>Hesap
+                                                    </a>
+                                                </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="/MusteriProfilDetay">
+                                                        <i class="zmdi zmdi-settings"></i>Ayarlar
+                                                    </a>
+                                                </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-money-box"></i>Kasam
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__footer">
+                                                <a href="/Customer/Logout">
+                                                    <i class="zmdi zmdi-power"></i>Çıkış Yap
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- HEADER DESKTOP-->
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+
+                        @RenderBody()
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2020 Qaroco. All rights reserved.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- Jquery JS-->
+    <script src="~/Content/NewAdminTemplate/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="~/Content/NewAdminTemplate/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="~/Content/NewAdminTemplate/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="~/Content/NewAdminTemplate/vendor/slick/slick.min.js"></script>
+    <script src="~/Content/NewAdminTemplate/vendor/wow/wow.min.js"></script>
+    <script src="~/Content/NewAdminTemplate/vendor/animsition/animsition.min.js"></script>
+    <script src="~/Content/NewAdminTemplate/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="~/Content/NewAdminTemplate/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="~/Content/NewAdminTemplate/vendor/counter-up/jquery.counterup.min.js"></script>
+    <script src="~/Content/NewAdminTemplate/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="~/Content/NewAdminTemplate/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="~/Content/NewAdminTemplate/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="~/Content/NewAdminTemplate/vendor/select2/select2.min.js"></script>
+
+    <!-- Main JS-->
+    <script src="~/Content/NewAdminTemplate/js/main.js"></script>
+
+    <script type="text/javascript">
+        var title = document.title;
+        var alttitle = "#EvdeKal - Qaroco";
+        window.onblur = function () { document.title = alttitle; };
+        window.onfocus = function () { document.title = title; };
+    </script>
+
+
+
+    <!--=================================HELP PAGE==============================================================-->
+    @*<script src="~/Content/Help/vendor/jquery/jquery-3.2.1.min.js"></script>*@
+    <!--===============================================================================================-->
+    @*<script src="~/Content/Help/vendor/animsition/js/animsition.min.js"></script>*@
+    <!--===============================================================================================-->
+    @*<script src="~/Content/Help/vendor/bootstrap/js/popper.js"></script>
+        <script src="~/Content/Help/vendor/bootstrap/js/bootstrap.min.js"></script>*@
+    <!--===============================================================================================-->
+    @*<script src="~/Content/Help/vendor/select2/select2.min.js"></script>*@
+    <!--===============================================================================================-->
+    <script src="~/Content/Help/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/Content/Help/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Help/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Help/js/main.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+
+
+</body>
+
+</html>
+<!-- end document-->

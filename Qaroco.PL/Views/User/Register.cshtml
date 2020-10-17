@@ -1,0 +1,196 @@
+﻿@model Qaroco.DL.User
+@{
+    ViewBag.Title = "Kayıt Ol";
+    Layout = "~/Views/Shared/RegisterLoginLayout.cshtml";
+}
+
+
+@if (ViewBag.result == 0)
+{
+    <div class="alert alert-danger" role="alert">
+        <h5>KİMLİK BİLGİLERİ UYUŞMUYOR !!</h5>
+    </div>
+}
+
+<div id="PopImage" style="background-color:black;opacity:0.90;z-index:20;position:fixed;width:100%;height:100%;display:block;padding:10%; top: 50%; left: 50%;transform: translate(-50%, -50%);">
+    <button style="width:48%;height:auto;margin-right:1rem;display:inline-block;" onclick="GetId(1)"><img style="width: 100%; height: auto;" src="~/Content/Template/img/businessman-register.jpg" alt="Alternate Text" /></button>
+    <button style="width:48%;height:auto;display:inline-block;" onclick="GetId(2)"><img style="width:100%;height:auto;" src="~/Content/Template/img/courier-registerr.jpg" alt="Alternate Text" /></button>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="login100-more" style="background-image: url('../../Content/Register/images/bg-01.jpg');">
+                <div class="col-md-12 register-resim">
+                    <img src="/Content/Template/img/logo.png" height="auto" class="register-logo-beyaz" style="max-width: 200px; padding-top: 125px;">
+                    <img src="/Content/Template/img/logo-siyah.png" height="auto" class="register-logo-siyah" style="max-idth: 200px;">
+                </div>
+                <div class="col-md-12 register-yazi"><h1>Hızlı ve yeni nesil taşımacılık</h1> </div>
+            </div>
+
+            <div class="wrap-login100 p-l-50 p-r-50 p-t-85 p-b-50">
+                <form class="login100-form validate-form">
+                    @using (Html.BeginForm())
+                    {
+                        //Gizli İnputlar
+                        <input type="hidden" id="UserId" name="UserId" value="">
+
+                        <span class="login100-form-title p-b-59">
+                            Kayıt Ol
+                        </span>
+                        <span style="color:red;">
+                            @Html.ValidationSummary()
+                            <br>
+                        </span>
+
+                        <div class="wrap-input100 validate-input" data-validate="İsim Gereklidir">
+                            <span class="label-input100">İsim</span>
+                            <input class="input100" type="text" name="Firstname">
+
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate="Soyisim Gereklidir">
+                            <span class="label-input100">Soyisim</span>
+                            <input class="input100" type="text" name="Lastname">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate="TcNo Gereklidir">
+                            <span class="label-input100">TcNo</span>
+                            <input class="input100" type="text" name="TcNo">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate="Doğum Yılı Gereklidir">
+                            <span class="label-input100">Doğum Yılı</span>
+                            <input class="input100" type="date" name="BirthYear" />
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="Mail Gereklidir">
+                            <span class="label-input100">Mail</span>
+                            <input class="input100" type="email" name="Email">
+                            <span class="focus-input100"></span>
+                        </div>
+
+
+
+                        <div class="wrap-input100 validate-input" data-validate="Şifre Gereklidir">
+                            <span class="label-input100">Şifre</span>
+                            <input class="input100" type="password" id="password" name="Password" minlength="4" maxlength="16" placeholder="*************">
+                            <i class="fa fa-eye-slash" onclick="togglePassword()"></i>
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="Telefon Gereklidir">
+                            <span class="label-input100">Telefon</span>
+                            <input class="input100" type="text" name="phone">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="flex-m w-full p-b-33">
+                            <div class="contact100-form-checkbox">
+
+                                <input class="input-checkbox100" id="ckb1" type="checkbox" name="contract">
+
+                                <label class="label-checkbox100" for="ckb1">
+                                    @*popup başlangıç*@
+                                    <div class="popup-container">
+                                        <label class="button" for="contract-popup">Kullanım Sözleşmesini</label>
+                                        <input type="checkbox" id="contract-popup">
+                                        <div class="popup">
+                                            <label for="contract-popup"></label>
+                                            <div class="inner">
+                                                <div class="title">
+                                                    <h6>Kullanıcı Sözleşmesini </h6>
+                                                    <label for="contract-popup">
+                                                        <i class="fa fa-times"></i>
+                                                    </label>
+                                                </div>
+                                                <div class="content">
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus luctus felis, sodales rutrum mi. Nullam vitae justo vel augue cursus tincidunt at vitae libero. Donec arcu massa, posuere in lacus quis, ultricies tempor tellus. Nulla facilisi. Vivamus commodo ac elit et finibus. Nam turpis dolor, facilisis ac augue at, imperdiet fermentum metus. Duis volutpat nisi vel nunc tincidunt, nec dignissim lacus porttitor. Nulla pharetra metus at sem scelerisque, non hendrerit neque consectetur. Ut sagittis, felis sed tincidunt molestie, ligula nunc rhoncus augue, auctor hendrerit est purus eget magna. Sed libero enim, volutpat et vulputate id, aliquam id massa.
+                                                    </p>
+                                                    <p>
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras nec ligula imperdiet, porta lectus vel, semper purus. Aenean gravida, nisi vel vulputate congue, nisl lectus porttitor est, at consectetur lectus quam vitae neque. Sed sit amet neque et tellus mattis aliquet. Donec luctus, nisl at congue dapibus, diam augue pharetra leo, eu maximus mi purus imperdiet mi. Pellentesque a auctor nulla. Vestibulum feugiat tristique nisi quis condimentum. Etiam massa quam, posuere eget nunc vel, viverra tincidunt elit. In sed scelerisque lectus. Praesent aliquam dolor at posuere condimentum. In tellus orci, convallis vitae leo eget, mollis feugiat dui. Nam vitae ligula ex.
+                                                    </p>
+                                                    <p>
+                                                        Cras tortor ipsum, semper vitae viverra lobortis, ultricies convallis metus. Vestibulum at ex eget lorem viverra sollicitudin. Nunc consectetur et quam tincidunt hendrerit. Nullam porttitor eleifend tellus, porttitor semper massa venenatis ac. Pellentesque eget velit fringilla neque facilisis auctor at non lorem. Vestibulum eget venenatis arcu. Duis nibh augue, ultricies eget purus non, blandit luctus tellus. Sed ante risus, sagittis imperdiet ex quis, pellentesque blandit augue. Cras fermentum lobortis odio quis vestibulum. Pellentesque efficitur elementum urna, vitae malesuada leo accumsan elementum.
+                                                    </p>
+                                                    <p>
+                                                        Curabitur finibus, nisi non luctus viverra, ipsum libero suscipit lectus, aliquam tincidunt neque enim sit amet sem. Cras quis porttitor urna. Proin ultrices magna vel neque pulvinar, ut iaculis lorem blandit. Phasellus vitae mi sed est luctus hendrerit. Donec et ultricies tortor. Donec interdum, sem a facilisis egestas, purus sapien vestibulum leo, ut congue risus massa sed orci. Duis tincidunt auctor metus, eget pharetra ligula rhoncus non. Proin in urna in tortor fringilla dapibus id in velit. Donec vulputate ut sem sed semper. Cras lacus elit, porta a commodo venenatis, iaculis et massa. Nunc aliquam congue lorem, eu pulvinar turpis consectetur at. Morbi fringilla placerat enim, non ornare mi mollis nec. Vivamus nec ultricies purus. Nullam dapibus erat non metus condimentum laoreet. Mauris sed libero viverra, efficitur enim dictum, laoreet nibh. Fusce in accumsan lacus.
+                                                    </p>
+                                                    <p>
+                                                        Phasellus mollis egestas sapien, sit amet sodales ipsum placerat non. Nulla sit amet pellentesque libero, blandit tincidunt nisl. Mauris hendrerit libero a viverra lobortis. Nam eget mollis nunc, id suscipit eros. Morbi nec sem vel ipsum dignissim elementum. Nulla scelerisque justo et eleifend ultrices. Suspendisse imperdiet placerat ligula, vel dictum ligula tempus eget. Etiam massa velit, aliquam sit amet porta eu, varius in turpis. Pellentesque at dictum felis, et blandit risus. Sed vitae porta tellus. Donec egestas scelerisque dapibus.
+                                                    </p>
+                                                    <div class="close-btn">
+                                                        <label for="contract-popup">
+                                                            PENCEREYİ KAPAT
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*popup bitiş*@
+                                    <span class="txt1">
+                                        Okudum ve Kabul Ediyorum
+                                    </span>
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <div class="container-login100-form-btn">
+                            <div class="wrap-login100-form-btn">
+                                <div class="login100-form-bgbtn"></div>
+                                <a href="/User/Register">
+                                    <button class="login100-form-btn">
+                                        Kayıt Ol
+                                    </button>
+                                </a>
+                            </div>
+
+                            <a href="/User/Login" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
+                                Giriş Yap
+                                <i class="fa fa-long-arrow-right m-l-5"></i>
+                            </a>
+                        </div>
+
+                        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="" />
+                        <script src="https://www.google.com/recaptcha/api.js?render=6Lch1uoUAAAAAI1R8ABoL4g93bwRd0Q0548HWct4"></script>
+                        <script>
+                            grecaptcha.ready(function () {
+                                grecaptcha.execute('6Lch1uoUAAAAAI1R8ABoL4g93bwRd0Q0548HWct4', { action: 'Register' }).then(function (token) {
+                                    document.getElementById("g-recaptcha-response").value = token;
+                                });
+                            });
+                        </script>
+
+                    }
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function togglePassword() {
+            var element = document.getElementById('password');
+            element.type = (element.type == 'password' ? 'text' : 'password');
+        }
+        function GetId(i) {
+            document.getElementById("UserId").value = i;
+            document.getElementById("PopImage").style.display = "none";
+        }
+    </script>
+
+
+}
+
+
+
+
+
+
+
+
+

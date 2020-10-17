@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Qaroco.DL.ViewModels" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Qaroco.DL.ViewModels" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Qaroco.DL" />
+  <xs:complexType name="BlogVM">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Qaroco.DL" minOccurs="0" name="_Blog" nillable="true" type="q1:Blog" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Qaroco.DL" minOccurs="0" name="_BlogComment" nillable="true" type="q2:ArrayOfBlogComment" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Qaroco.DL" minOccurs="0" name="_Picture" nillable="true" type="q3:Picture" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BlogVM" nillable="true" type="tns:BlogVM" />
+  <xs:complexType name="ArrayOfBlogVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BlogVM" nillable="true" type="tns:BlogVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBlogVM" nillable="true" type="tns:ArrayOfBlogVM" />
+  <xs:complexType name="CargoVM">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Qaroco.DL" minOccurs="0" name="_CargoTransaction" nillable="true" type="q4:CargoTransaction" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Qaroco.DL" minOccurs="0" name="_Location" nillable="true" type="q5:Location" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Qaroco.DL" minOccurs="0" name="_Order" nillable="true" type="q6:Order" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Qaroco.DL" minOccurs="0" name="_ProductInfo" nillable="true" type="q7:ProductInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CargoVM" nillable="true" type="tns:CargoVM" />
+  <xs:complexType name="ArrayOfCargoVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CargoVM" nillable="true" type="tns:CargoVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCargoVM" nillable="true" type="tns:ArrayOfCargoVM" />
+  <xs:complexType name="CourierVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="BirthYear" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CourierId" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RoleId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TcNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserActiveStatus" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CourierVM" nillable="true" type="tns:CourierVM" />
+  <xs:complexType name="CustomerVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="BirthYear" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PictureId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RoleId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TcNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserActiveStatus" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomerVM" nillable="true" type="tns:CustomerVM" />
+  <xs:complexType name="ArrayOfCargoOrderVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CargoOrderVM" nillable="true" type="tns:CargoOrderVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCargoOrderVM" nillable="true" type="tns:ArrayOfCargoOrderVM" />
+  <xs:complexType name="CargoOrderVM">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Qaroco.DL" minOccurs="0" name="_Location" nillable="true" type="q8:Location" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Qaroco.DL" minOccurs="0" name="_Order" nillable="true" type="q9:Order" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Qaroco.DL" minOccurs="0" name="_ProductInfo" nillable="true" type="q10:ProductInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CargoOrderVM" nillable="true" type="tns:CargoOrderVM" />
+</xs:schema>

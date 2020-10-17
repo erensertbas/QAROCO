@@ -1,0 +1,72 @@
+﻿@model Qaroco.DL.ViewModels.BlogVM
+    @*IEnumerable*@
+@{
+    ViewBag.Title = "BlogEkleme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br /> <br /> <br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container-contact100">
+        <div class="wrap-contact100">
+            <form class="contact100-form validate-form" method="post">
+                <span class="contact100-form-title">
+                    Blog Paylaş
+                </span>
+                @if (TempData["Message"] != null)
+                {
+                    <div class="alert-success">@TempData["Message"] &nbsp <i class="fa fa-check" aria-hidden="true"></i></div>
+                }
+                <div class="wrap-input100 validate-input" data-validate="Başlık Giriniz">
+                    <input class="input100" type="text" name="BlogTitle" placeholder="Başlık">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="İçerik Giriniz">
+                    <textarea class="input100" name="BlogContent" placeholder="İçerik"></textarea>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Etiket Giriniz">
+                    <input class="input100" type="text" name="TagName" placeholder="Etiketler">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Please enter your title">
+                    <input class="input100" type="text" name="CategoryName" placeholder="Kategoriler">
+                    <span class="focus-input100"></span>
+
+
+                    @*<select multiple="multiple">
+                @foreach (var item in Model)
+                {
+                    <option value="value">@item.CategoryName</option>
+                }
+            </select>*@
+
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Yüklendiği Tarih Giriniz">
+                    <input type="date" class="input100" name="DateOfUpload" placeholder="Tarih">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="container-contact100-form-btn">
+
+                    <a href="/Admin/BlogAdd">
+                        <button class="contact100-form-btn">
+                            <span>
+                                Paylaş
+                            </span>
+                        </button>
+                    </a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
+

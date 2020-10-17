@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Qaroco - @ViewBag.Title </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Qaroco, Qaroco Kurye Hizmetleri, Kurye Hizmetleri, Qaroco Taşımacılık, Qaroco Kargo, Qaroco Kargo Taşımacılık " name="keywords">
+    <meta content="QAROCO, kullanıcılarının yaptığı internet alışverişlerinin teslimatını veya A noktasından B noktasına göndermek istediği kargoların gönderimini en hızlı şekilde 7/24 olarak yapmaktayız." name="description">
+
+    <!-- Favicons -->
+    <link href="~/Content/Template/img/favicon.png" rel="icon">
+    <link href="~/Content/Template/img/title.png" rel="apple-touch-icon">
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700|Roboto:300,400,700&display=swap"
+          rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="~/Content/Template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+
+    <link href="~/Content/Template/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="~/Content/Template/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
+
+    <link href="~/Content/Template/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/Content/Template/vendor/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/Content/Template/css/style.css" rel="stylesheet">
+    <!--FAQ CSS File-->
+    <link href="~/Content/Template/css/Faq.css" rel="stylesheet" />
+    <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' />
+
+
+
+    <link rel="icon" type="image/png" href="~/Content/Register/images/icons/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Register/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Register/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Register/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Register/fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Register/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Register/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Register/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Register/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Register/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Register/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Register/css/main.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Register/css/popup-styles.css">
+</head>
+<style>
+    .sticky-wrapper.is-sticky .site-navbar .site-menu > li > .la-user:before {
+        color: black !important;
+    }
+    .la-user:before {
+        content: "\f007";
+        color: rgba(255, 255, 255, 0.8) !important;
+    }
+    .sticky-wrapper {
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        background: #000 !important;
+    }
+
+    .site-navbar .site-navigation .site-menu > li > a {
+        color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .sticky-wrapper .site-navbar .site-menu > li > a:hover {
+        color: #fff !important;
+    }
+</style> 
+
+<body>
+
+    <div class="site-wrap">
+
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icofont-close js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+        <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
+            <div class="container">
+                @if (ViewBag.Hata != null)
+                {
+                    <script>
+
+            alert(@ViewBag.Hata);
+                    </script>
+                }
+                <div class="row align-items-center">
+
+                    <div class="col-3">
+                        <h1 class="mb-0 site-logo">
+                            <a href="~/Home/Index" class="mb-0 logo-beyaz"><img src="~/Content/Template/img/logo.png" height="50"> QAROCO</a>
+                            <a href="~/Home/Index" class="mb-0 logo-siyah"><img src="~/Content/Template/img/logo-siyah.png" height="50"> QAROCO</a>
+                        </h1>
+                    </div>
+
+                    <div class="col-12 col-md-9 d-none d-lg-block">
+                        <nav class="site-navigation position-relative text-right" role="navigation">
+
+                            <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                                <li><a href="/Anasayfa" class="nav-link">Anasayfa</a></li>
+                                @*<li><a href="/Fiyatlandirma" class="nav-link">Fiyatlandırma</a></li>*@
+                                <li class="has-children">
+                                    <a href="" class="nav-link">Çözümler</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/İsletme" class="nav-link">İşletmeci Ol</a></li>
+                                        <li><a href="/KuryeOl" class="nav-link">Kurye Ol</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/İletisim" class="nav-link">İletişim</a></li>
+                                <li><a href="/SSS" class="nav-link">S.S.S</a></li>
+                                <li><a href="/Blog" class="nav-link">Blog</a></li>
+                                <li class="has-children">
+
+                                    <span class="icon la la-user"></span>
+                                    <ul class="dropdown">
+                                        @{
+                                            if (ViewBag.LoginId == 2)
+                                            {
+                                                <li><a href="/AdminDashboard" class="nav-link">Panelimi Görüntüle</a></li>
+                                                <li><a href="/Home/Logout" class="nav-link">Çıkış Yap</a></li>
+
+                                            }
+                                            else if (ViewBag.LoginId == 5)
+                                            {
+                                                <li><a href="/KuryePanel" class="nav-link">Panelimi Görüntüle</a></li>
+                                                <li><a href="/Home/Logout" class="nav-link">Çıkış Yap</a></li>
+
+                                            }
+                                            else if (ViewBag.LoginId == 4)
+                                            {
+                                                <li><a href="/İsletmePanel" class="nav-link">Panelimi Görüntüle</a></li>
+                                                <li><a href="/Home/Logout" class="nav-link">Çıkış Yap</a></li>
+
+                                            }
+                                            else
+                                            {
+                                                <li><a href="/GirisYap" class="nav-link">Giriş Yap</a></li>
+                                                <li><a href="/KayitOl" class="nav-link">Kayıt Ol</a></li>
+                                            }
+                                        }
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+
+                    <div class="col-6 d-inline-block d-lg-none ml-md-0 py-3" style="position: relative; top: 3px;">
+
+                        <a href="#" class="burger site-menu-toggle js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
+                            <span></span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </header>
+
+        @*sayfadaki kıvrımlı siyah kısım*@
+
+        @RenderBody()
+
+        <footer class="footer" role="contentinfo" style="margin-top:0px !important;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <h3>Qaroco Hakkında </h3>
+                        <p>QAROCO, kullanıcılarının yaptığı internet alışverişlerinin teslimatını veya A noktasından B noktasına göndermek istediği kargoları, şube sistemine bağlı kalmadan 7 gün 24 saat sisteme kayıtlı kendi araçlarıyla freelance ya da tam zamanlı dağıtım yapan Qaroco bünyesinde eğitilen sürücüler ile hızlı teslimatı anlık takip sistemiyle kullanıcılarına sunan bir hizmettir.</p>
+
+                    </div>
+                    <div class="col-md-7 ml-auto">
+                        <div class="row site-section pt-0">
+                            <div class="col-md-4 mb-4 mb-md-0">
+                                <h3>İletişim</h3>
+                                <p style="margin: 0 0 10px;"><b>Adres:</b> İstanbul / Türkiye</p>
+
+                                <p style="margin: 0 0 10px;"><b>Telefon:</b> <a href="#"><span style="color:#FFFFFF;">None </span></a></p>
+
+
+                                <p style="margin: 0 0 10px;"><b>E-Mail:</b><span style="color:#FFFFFF;"> </span><a href="#"><span style="color:#FFFFFF;">info@qaroco.com</span></a></p>
+                            </div>
+
+                            <div class="col-md-4 mb-4 mb-md-0">
+                                <h3>İndir</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#"><img src="~/Content/Template/img/for-mac.png" style="width:200px;" /></a></li>
+                                    <li><a href="#"><img src="~/Content/Template/img/for-windows.png" style="width:200px;" /></a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 mb-4 mb-md-0">
+                                <h3>Sosyal Medya</h3>
+                                <p class="social">
+                                    <a href="https://www.instagram.com/qaroco"><span class="icofont-instagram"></span></a>
+                                    <a href="https://twitter.com/qaroco"><span class="icofont-twitter"></span></a>
+                                    <a href="https://www.facebook.com/qaroco"><span class="icofont-facebook"></span></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center text-center">
+                    <div class="col-md-7">
+                        <p class="copyright">&copy; Copyright <a href="http://qaroco.com">Qaroco</a> - All Rights Reserved</p>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+    </div> <!-- .site-wrap -->
+
+    <a href="#" class="back-to-top" style="margin-bottom:75px;"><i class="icofont-simple-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/Content/Template/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/Template/vendor/jquery/jquery-migrate.min.js"></script>
+    <script src="~/Content/Template/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/Template/vendor/easing/easing.min.js"></script>
+    <script src="~/Content/Template/vendor/php-email-form/validate.js"></script>
+    <script src="~/Content/Template/vendor/sticky/sticky.js"></script>
+    <script src="~/Content/Template/vendor/aos/aos.js"></script>
+    <script src="~/Content/Template/vendor/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/Content/Template/js/main.js"></script>
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+    <script src="~/Content/Template/js/function.js"></script>
+
+
+    <script src="~/Content/Register/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/Register/vendor/animsition/js/animsition.min.js"></script>
+    <script src="~/Content/Register/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Content/Register/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/Register/vendor/select2/select2.min.js"></script>
+    <script src="~/Content/Register/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/Content/Register/vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="~/Content/Register/vendor/countdowntime/countdowntime.js"></script>
+    <script src="~/Content/Register/js/main.js"></script>
+   
+    @*<script defer src="~/Content/Register/js/popup-script.js"></script>*@
+
+    <script type="text/javascript">
+        var title = document.title;
+        var alttitle = "#EvdeKal - Qaroco";
+        window.onblur = function () { document.title = alttitle; };
+        window.onfocus = function () { document.title = title; };
+    </script>
+
+</body>
+
+</html>

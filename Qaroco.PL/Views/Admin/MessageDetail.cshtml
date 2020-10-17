@@ -1,0 +1,60 @@
+﻿@model Qaroco.DL.MessageSystem
+
+@{
+    ViewBag.Title = "MesajDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div>
+    <h4>Mesaj Detay</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <br />
+        <dt>
+            ADI
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            SOYADI
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt>
+            MAİL ADRESİ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            MAİL BAŞLIĞI
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+           MESAJ İÇERİĞİ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+
+    </dl>
+
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |*@
+    @Html.ActionLink("Geri Dön", "Messages")
+</p>

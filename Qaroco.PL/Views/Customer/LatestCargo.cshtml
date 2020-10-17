@@ -1,0 +1,35 @@
+﻿@model List<Qaroco.DL.ViewModels.CargoOrderVM>
+@{
+    ViewBag.Title = "Geçmiş Kargolar";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";}
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Sipariş Notu</th>
+            <th scope="col">Tarihi</th>
+            <th scope="col">Genişlik(Cm)</th>
+            <th scope="col">Yükseklik(Cm)</th>
+            <th scope="col">Ağırlık(Gr)</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @*Burayı düzenliyicez Kargo Al GETCARGO nun POstuna Gidecek*@
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item._Order.OrderNote</td>
+                <td>@item._Order.OrderDate</td>
+                <td>@item._ProductInfo.Width</td>
+                <td>@item._ProductInfo.Height</td>
+                <td>@item._ProductInfo.Weight</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+

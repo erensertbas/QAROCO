@@ -1,0 +1,63 @@
+﻿@model List<Qaroco.DL.ViewModels.CargoOrderVM>
+@{
+    ViewBag.Title = "GetCargo";
+    Layout = "~/Views/Shared/CourierLayout.cshtml";
+}
+@if (TempData["Success"] != null)
+{
+    <div class="alert-success">@TempData["Success"] &nbsp <i class="las la-truck"></i></div>
+}<br />
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Sipariş Notu</th>
+            <th scope="col">Tarihi</th>
+            <th scope="col">Genişlik(Cm)</th>
+            <th scope="col">Yükseklik(Cm)</th>
+            <th scope="col">Ağırlık(Gr)</th>
+            <th scope="col">Konum</th>
+            <th scope="col"></th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+
+            <form action="KargoAl" method="post">
+                @if (item != null)
+                {
+                    <tr>
+                        <td>@item._Order.OrderNote</td>
+                        <input type="hidden" name="OrderId" value="@item._Order.OrderId" />
+                        <input type="hidden" name="OrderNote" value="@item._Order.OrderNote" />
+                        <td>@item._Order.OrderDate.Value.ToShortDateString()</td>
+                        <input type="hidden" name="OrderDate" value="@item._Order.OrderDate" />
+                        <input type="hidden" name="ProductId" value="@item._Order.ProductId" />
+                        <input type="hidden" name="LocationId" value="@item._Order.LocationId" />
+                        <input type="hidden" name="ShippingTypeId" value="@item._Order.ShippingTypeId" />
+                        <input type="hidden" name="OrderStatus" value="@item._Order.OrderStatus" />
+                        <input type="hidden" name="CustomerId" value="@item._Order.CustomerId" />
+                        <td>@item._ProductInfo.Width</td>
+                        <td>@item._ProductInfo.Height</td>
+                        <td>@item._ProductInfo.Weight</td>
+                        <td><a href="@string.Format("https://www.google.com/maps/?q={0},{1}", item._Location.Lat,item._Location.Lng)">Konumunu gör</a></td>
+                        <td><button type="submit" class="btn-primary" style="border-radius:5px; width:5rem;height:3rem;">Kargo Al</button></td>
+                    </tr>
+                }
+                else
+                {
+                    <h4> Veri Bulunamadı. </h4>
+                }
+            </form>
+
+        }
+
+
+
+
+
+    </tbody>
+</table>
+

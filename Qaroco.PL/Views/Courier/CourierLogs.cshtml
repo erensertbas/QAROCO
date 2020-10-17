@@ -1,0 +1,30 @@
+﻿@model List<Qaroco.DL.Log>
+@{
+    ViewBag.Title = "Kurye Giriş İşlemeleri";
+    Layout = "~/Views/Shared/CourierLayout.cshtml";
+}
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Email</th>
+            <th scope="col">Açıklama</th>
+            <th scope="col">Ip Adresi</th>
+            <th scope="col">Hatalı Giriş Tarihi</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.LogEmail</td>
+                <td>@item.LogDescription</td>
+                <td>@item.LogIp</td>
+                <td>@item.LogDate</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+

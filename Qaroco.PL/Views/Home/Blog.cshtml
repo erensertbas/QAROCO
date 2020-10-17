@@ -1,0 +1,133 @@
+﻿@model List<Qaroco.DL.Blog>
+
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+    form.example input[type=text] {
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid grey;
+        float: left;
+        width: 80%;
+        background: #f1f1f1;
+    }
+
+    form.example button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #2d71a1;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none;
+        cursor: pointer;
+    }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+    form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+</style>
+
+
+<div class="site-section">
+    <div class="container">
+        <div class="row container " style="margin-bottom:1rem;">
+
+                <form class="example" action="/Blog">
+                    <input type="text" placeholder="Ara.." name="srcBlog">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+
+            </div>
+        
+        <div class="row">
+
+
+            @* BLOG LİSTİN BAŞLANGICI*@
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 mb-4">
+                    <div class="entry2">
+                        <a href="@Qaroco.PL.Helpers.UrlHelpers.UrlCreate(item.BlogTitle+" "+item.CategoryName)-@item.BlogId"><img src="~/Content/Blog/images/img_1.jpg" alt="Image" class="img-fluid rounded"></a>
+                        <div class="excerpt">
+                            <span class="post-category text-white bg-secondary mb-3"> @item.CategoryName </span> <span>&nbsp; @item.DateOfUpload.Value.ToShortDateString()  &nbsp; </span>
+
+                            <h2><a href="single.html">@item.BlogTitle</a></h2>
+                            <div class="post-meta align-items-center text-left clearfix">
+
+                            </div>
+                            <p>
+                                @if (item.BlogContent.Length > 150)
+                                {
+                                    @(item.BlogContent.Substring(0, 147) + "...")
+                                    <a href="@Qaroco.PL.Helpers.UrlHelpers.UrlCreate(item.BlogTitle+" "+item.CategoryName)-@item.BlogId">Devamını Göster..</a>
+                                }
+                                else
+                                {
+                                    @Html.DisplayFor(modelItem => item.BlogContent)
+                                }
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @* BLOG LİSTİN BİTİŞİ*@
+        </div>
+
+
+            @* Sayfalama *@
+        <div class="container pagination-list">
+            @if (ViewBag.CurrentPage != 1)
+            {
+                <input type="button" class="btn-primary btn-paging" data-val="@(((int)ViewBag.CurrentPage)-1)" value="Geri" />
+            }
+
+            @for (int i = (int)ViewBag.StartPage; i < ((int)ViewBag.EndPage) + 1; i++)
+            {
+                if (ViewBag.CurrentPage == i)
+                {
+                    <input type="button" class="btn-primary btn-paging" value="@i" data-val="@i" />
+                }
+                else
+                {
+                    <input type="button" class="btn-primary btn-paging" value="@i" data-val="@i" />
+                }
+            }
+
+            @if (ViewBag.CurrentPage != ViewBag.PageCount)
+            {
+                <input type="button" class="btn-primary btn-paging" value="İleri" data-val="@(((int)ViewBag.CurrentPage)+1)" />
+            }
+
+        </div>
+
+        @section scripts
+            {
+            <script>
+                $(function () {
+                    $('.btn-paging').click(function () {
+                        window.location.href = "Blog?page=" + $(this).attr('data-val');
+                    }
+                    );
+                });
+            </script>
+
+            }
+
+
+    </div>
+</div>

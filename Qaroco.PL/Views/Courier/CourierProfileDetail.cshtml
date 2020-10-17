@@ -1,0 +1,111 @@
+﻿@model Qaroco.DL.User
+@{
+    ViewBag.Title = "KuryeProfil";
+    Layout = "~/Views/Shared/CourierLayout.cshtml";
+}
+
+@Html.AntiForgeryToken()
+
+<div class="container-contact100">
+    <div class="wrap-contact100">
+
+        <form class="" method="post" action="/KuryeProfilDetay">
+            <span class="contact100-form-title" style="font-size:30px;">
+                <b>Profilimi Güncelle</b> <br /> <br />
+
+            </span>
+            @if (TempData["Message"] != null)
+            {
+                <div class="alert-success">@TempData["Message"] &nbsp <i class="fa fa-refresh" aria-hidden="true"></i></div>
+            }<br />
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Ad</label>
+                <div class="col-sm-4" data-validate="Lütfen adınızı giriniz">
+                    <input type="text" class="form-control" name="FirstName" value="@Model.FirstName">
+                </div>
+            </div>
+            <div class="form-group row" data-validate="Lütfen soyadınızı giriniz">
+                <label class="col-sm-2 col-form-label">Soyad</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="LastName" value="@Model.LastName">
+                </div>
+            </div>
+            <div class="form-group row" data-validate="Lütfen şifrenizi giriniz">
+                <label class="col-sm-2 col-form-label">Şifre</label>
+                <div class="col-sm-4">
+                    <i class="fa fa-eye-slash" onclick="togglePassword()"></i>
+                    <input type="password" class="form-control" id="password" name="Password" value="@Model.Password">
+                </div>
+            </div>
+            <div class="form-group row" data-validate="Lütfen telefon numaranızı giriniz">
+                <label class="col-sm-2 col-form-label">Telefon</label>
+                <div class="col-sm-4">
+                    <input type="tel" class="form-control" name="Phone" value="@Model.Phone">
+                </div>
+            </div>
+            <div class="form-group row" data-validate="Lütfen Email giriniz">
+                <label class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-4">
+                    <input type="email" class="form-control" name="Email" value="@Model.Email"><br /><br />
+                </div>
+            </div>
+            <div class="container-contact100-form-btn">
+                <button type="submit" class="btn-primary" style="border-radius:5px; width:5rem;height:3rem";>
+                    <span>
+                        Güncelle
+                    </span>
+                </button>
+            </div>
+        </form>
+
+        @*
+            ESKİ
+        *@
+
+        @*<form class="contact100-form validate-form" method="post">
+            <span class="contact100-form-title">
+                Profilimi Güncelle
+            </span>
+            @TempData["Mesaj"]
+            <div class="wrap-input100 validate-input" data-validate="Lütfen adınızı giriniz">
+                <input class="input100" type="text" name="FirstName" placeholder="Adınız" value="@Model.FirstName">
+                <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Lütfen soyadınızı giriniz">
+                <input class="input100" type="text" name="LastName" placeholder="Soyadınız" value="@Model.LastName">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Lütfen şifrenizi giriniz">
+                <input class="input100" type="password" name="Password" placeholder="Password" value="@Model.Password">
+                <i class="fa fa-eye-slash" onclick="togglePassword()"></i>
+                <span class="focus-input100"></span>
+
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Lütfen telefon numaraınızı giriniz. ">
+                <input class="input100" type="tel" name="Phone" placeholder="Tel" value="@Model.Phone">
+                <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Lütfen Email giriniz">
+                <input class="input100" type="text" name="Email" placeholder="Email" value="@Model.Email">
+                <span class="focus-input100"></span>
+            </div>
+            <div class="container-contact100-form-btn">
+                <button class="contact100-form-btn">
+                    <span>
+                        Güncelle
+                    </span>
+                </button>
+            </div>
+        </form>*@
+    </div>
+</div>
+<div id="dropDownSelect1"></div>
+<script>
+    function togglePassword() {
+        var element = document.getElementById('password');
+        element.type = (element.type == 'password' ? 'text' : 'password');
+
+    }
+</script>
+
